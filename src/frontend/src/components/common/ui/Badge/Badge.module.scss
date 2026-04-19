@@ -1,0 +1,51 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  background: var(--badge-default-bg);
+  border: 1px solid var(--badge-default-border);
+  color: var(--text-secondary);
+}
+
+.up {
+  color: var(--status-up);
+  background: var(--status-up-bg);
+  border-color: var(--status-up-border);
+}
+
+.down {
+  color: var(--status-down);
+  background: var(--status-down-bg);
+  border-color: var(--status-down-border);
+}
+
+.degraded {
+  color: var(--status-degraded);
+  background: var(--status-degraded-bg);
+  border-color: var(--status-degraded-border);
+}
+
+.nodata {
+  color: var(--text-muted);
+  background: var(--status-nodata-bg);
+  border-color: var(--status-nodata-border);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dotUp       { background: var(--status-up); box-shadow: 0 0 8px var(--status-up-glow); }
+.dotDown     { background: var(--status-down); box-shadow: 0 0 8px var(--status-down-glow); }
+.dotDegraded { background: var(--status-degraded); box-shadow: 0 0 8px var(--status-degraded-glow); }
+.dotNodata   { background: var(--text-muted); }

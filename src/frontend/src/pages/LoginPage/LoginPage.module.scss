@@ -1,0 +1,103 @@
+.page {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+  padding: 32px;
+}
+
+.logoRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.brandMark {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: radial-gradient(circle at 30% 30%, var(--accent-glow), transparent 70%), var(--surface-alt);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  position: relative;
+  box-shadow: 0 0 18px -2px var(--accent-glow), inset 0 1px 0 var(--surface-brand-inset);
+
+  &::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--up-glow);
+    animation: pulse 2.2s ease-in-out infinite;
+  }
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  padding: 4px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  background: var(--surface-tabs-bg);
+  margin-bottom: 20px;
+}
+
+.tab {
+  flex: 1;
+  height: 36px;
+  border-radius: 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  transition: background 0.2s, color 0.2s;
+
+  &:hover:not(.active) {
+    color: var(--text-primary);
+  }
+}
+
+.active {
+  background: var(--surface-tab-active);
+  color: var(--text-primary);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.error {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--status-down);
+  background: var(--status-down-bg);
+  border: 1px solid var(--status-down-border);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+}
+
+.submitBtn {
+  width: 100%;
+  margin-top: 4px;
+}

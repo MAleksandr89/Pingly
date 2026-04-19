@@ -1,0 +1,58 @@
+.dot {
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-block;
+  position: relative;
+}
+
+.sm {
+  width: 8px;
+  height: 8px;
+}
+
+.md {
+  width: 10px;
+  height: 10px;
+}
+
+.up {
+  background: var(--status-up);
+  box-shadow: 0 0 10px var(--up-glow);
+  animation: pulse-up 2.2s ease-in-out infinite;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    border: 1px solid var(--up-glow);
+    opacity: 0.6;
+    animation: ripple 2.6s ease-out infinite;
+  }
+}
+
+.down {
+  background: var(--status-down);
+  box-shadow: 0 0 10px var(--down-glow);
+  animation: pulse-down 2.2s ease-in-out infinite;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    border: 1px solid var(--down-glow);
+    opacity: 0.6;
+    animation: ripple 2.6s ease-out infinite;
+  }
+}
+
+.degraded {
+  background: var(--status-degraded);
+  box-shadow: 0 0 10px var(--degraded-glow);
+}
+
+.nodata {
+  background: var(--text-muted);
+  opacity: 0.6;
+}

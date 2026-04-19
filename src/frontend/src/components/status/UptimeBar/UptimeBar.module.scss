@@ -1,0 +1,53 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.bar {
+  display: flex;
+  gap: 2px;
+  align-items: flex-end;
+  height: 34px;
+  position: relative;
+}
+
+.segment {
+  flex: 1;
+  height: 100%;
+  border-radius: 2px;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity 0.2s, transform 0.2s;
+
+  &:hover {
+    opacity: 1;
+    transform: scaleY(1.08);
+  }
+}
+
+.up      { background: var(--status-up); }
+.down    { background: var(--status-down); }
+.nodata  { background: var(--bar-nodata); opacity: 0.6; }
+
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  transform: translateX(-50%);
+  background: var(--surface-tooltip);
+  border: 1px solid oklch(1 0 0 / 0.12);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 10;
+  box-shadow: 0 8px 24px oklch(0 0 0 / 0.4);
+  backdrop-filter: blur(8px);
+}
+
+.tooltipDate           { font-family: var(--mono); font-size: 11px; color: var(--text-muted); }
+.tooltipStatusUp       { font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--status-up); }
+.tooltipStatusDown     { font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--status-down); }
+.tooltipStatusNodata   { font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--text-muted); }

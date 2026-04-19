@@ -1,0 +1,233 @@
+.page {
+  min-height: 100vh;
+}
+
+// Sticky topbar
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  border-bottom: 1px solid var(--border-subtle);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--surface-topbar);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.brandMark {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: radial-gradient(circle at 30% 30%, var(--accent-glow), transparent 70%), var(--surface-alt);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  position: relative;
+  box-shadow: 0 0 18px -2px var(--accent-glow), inset 0 1px 0 var(--surface-brand-inset);
+
+  &::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--up-glow);
+    animation: pulse 2.2s ease-in-out infinite;
+  }
+}
+
+.logo {
+  font-size: 15px;
+  color: var(--text-primary);
+}
+
+.logoSub {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-left: 4px;
+}
+
+// Hero: big status headline
+.hero {
+  padding: 48px 40px 28px;
+  display: grid;
+  gap: 20px;
+}
+
+.heroHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.heroTitle {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.heroTitleEm {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  background: linear-gradient(180deg, var(--text-primary), var(--text-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+// Animated status card
+.statusCard {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  background: var(--surface-status-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-card-lg);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, var(--accent-glow), transparent 35%, transparent 65%, var(--accent-glow));
+    opacity: 0.35;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+.statusHalo {
+  position: absolute;
+  right: -20%;
+  bottom: -80%;
+  width: 60%;
+  height: 200%;
+  background: radial-gradient(closest-side, var(--accent-glow), transparent 70%);
+  opacity: 0.2;
+  pointer-events: none;
+  filter: blur(20px);
+}
+
+.statusRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.statusTitle {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.statusDot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--statusdot-up-ring), 0 0 18px var(--up-glow);
+  position: relative;
+  flex-shrink: 0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 1px solid var(--up-glow);
+    opacity: 0.6;
+    animation: ripple 2.6s ease-out infinite;
+  }
+}
+
+.statusDotDown {
+  background: var(--status-down);
+  box-shadow: 0 0 0 4px var(--statusdot-down-ring), 0 0 18px var(--down-glow);
+
+  &::after {
+    border-color: var(--down-glow);
+  }
+}
+
+.statusLabel {
+  h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+  }
+
+  p {
+    margin: 4px 0 0;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+}
+
+// Monitors section
+.monitors {
+  padding: 8px 40px 60px;
+  display: grid;
+  gap: 8px;
+}
+
+.monitorList {
+  display: grid;
+  gap: 8px;
+}
+
+.empty {
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 60px 0;
+}
+
+// Footer
+.footer {
+  padding: 20px 40px;
+  border-top: 1px solid var(--border-subtle);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 768px) {
+  .topbar { padding: 16px 20px; }
+  .hero   { padding: 32px 20px 20px; }
+  .monitors { padding: 8px 20px 40px; }
+  .footer { padding: 16px 20px; }
+  .heroTitle { font-size: 28px; }
+}

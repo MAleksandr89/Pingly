@@ -1,0 +1,101 @@
+@use './variables';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.5;
+  background: var(--bg);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+button { font-family: inherit; }
+
+#root {
+  min-height: 100vh;
+  position: relative;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--accent-hover);
+  }
+}
+
+// Ambient background glow — rendered once in App.jsx
+.ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(900px 600px at 12% -10%, var(--ambient-a), transparent 60%),
+    radial-gradient(900px 600px at 90% 0%,   var(--ambient-b), transparent 60%),
+    radial-gradient(1100px 700px at 50% 120%, var(--ambient-c), transparent 60%);
+  mask-image: linear-gradient(180deg, black, black 70%, transparent);
+}
+
+.gridNoise {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(to right, oklch(0.30 0.018 260 / 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.30 0.018 260 / 0.07) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(1200px 800px at 50% 0%, black, transparent 70%);
+  opacity: 0.6;
+}
+
+.appContent {
+  position: relative;
+  z-index: 1;
+}
+
+// Keyframes
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(0.9); opacity: 0.9; }
+  50%       { transform: scale(1.15); opacity: 1; }
+}
+
+@keyframes ripple {
+  0%   { transform: scale(0.8); opacity: 0.7; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+@keyframes pulse-up {
+  0%, 100% { box-shadow: 0 0 0 0 oklch(0.78 0.16 155 / 0.40); }
+  50%       { box-shadow: 0 0 0 6px oklch(0.78 0.16 155 / 0); }
+}
+
+@keyframes pulse-down {
+  0%, 100% { box-shadow: 0 0 0 0 oklch(0.72 0.17 25 / 0.40); }
+  50%       { box-shadow: 0 0 0 6px oklch(0.72 0.17 25 / 0); }
+}
+
+@keyframes shimmer {
+  from { background-position: -200% center; }
+  to   { background-position: 200% center; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
