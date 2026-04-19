@@ -19,9 +19,9 @@ export const App = () => (
     <QueryClientProvider client={queryClient}>
         <AuthProvider>
             <BrowserRouter>
-                <div className="ambient" />
-                <div className="gridNoise" />
-                <div className="appContent">
+                <div className='ambient' />
+                <div className='gridNoise' />
+                <div className='appContent'>
                     <Routes>
                         <Route path='/status' element={<StatusPage />} />
                         <Route path='/login' element={<LoginPage />} />
