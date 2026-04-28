@@ -41,6 +41,7 @@ app = FastAPI(
     version="1.0.0",
     default_response_class=ORJSONResponse,
     lifespan=lifespan,
+    redirect_slashes=False,
 )
 
 app.state.limiter = limiter
