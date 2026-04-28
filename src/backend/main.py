@@ -92,7 +92,7 @@ async def health() -> dict[str, str]:
 
 
 @app.get(
-    "/api/status",
+    "/api/status/",
     response_model=StatusPageResponse,
     status_code=HTTPStatus.OK,
     summary="Публичная страница статуса",
